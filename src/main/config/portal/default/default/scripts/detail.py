@@ -149,6 +149,12 @@ class DetailData:
         # check using role-based security
         myRoles = self.page.authentication.get_roles_list()
         allowedRoles = self.getAllowedRoles()
+
+        print('myRoles:')
+        print(myRoles)
+        print('allowRoles:')
+        print(allowedRoles)
+
         if myRoles is None or allowedRoles is None:
             return True
         for role in myRoles:

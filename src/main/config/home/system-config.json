@@ -159,6 +159,9 @@
 				]
 			],
 			"guest":[
+				[
+					["Shib-Identity-Provider", "is", "https://test-aaf-login.uts.edu.au/idp/shibboleth"]
+				]
 			]
 		}
 	},
