@@ -260,6 +260,8 @@
 
             #geoSpatialMacro("dc:coverage.vivo:GeographicLocation")
 
+            <!-- Related Objects -->
+
             ### Relations
             #set($valueList = $item.getJsonSimpleList("relationships"))
             #if($valueList)
@@ -268,7 +270,7 @@
                         #set($key = $value.getString("empty", "curatedPid"))
                         #set($rel = $value.getString("hasAssociationWith", "relationship"))
                         #set($desc = $value.getString("empty", "description"))
-                        #if ($key != "empty")
+                        #if ($key != "empty" && $rel != "isManagedBy")
             <rif:relatedObject>
                 <rif:key>$util.encodeXml($key)</rif:key>
                             #if ($desc != "empty")
@@ -284,6 +286,10 @@
                 #end
             #end
 
+            <!-- End Related Objects -->
+            
+	    <!-- Start NLA creators -->
+
             ### National Library Creators - Non-curated
             #set($valueMap = $util.getList($item, "dc:creator.foaf:Person"))
             #foreach($key in $valueMap.keySet())
@@ -296,7 +302,7 @@
                 #end
             #end
 
-
+            <!-- End NLA creators -->
 
            	#showElementRifCS ("rif:subject"  "dc:subject.vivo:keyword"  " type=${quote}local${quote} $lang"  "rdf:PlainLiteral"  "")
             #showElementRifCS ("rif:subject"  "dc:subject.anzsrc:for"  " type=${quote}anzsrc-for${quote} $lang"  "rdf:resource"  "anzsrc")
