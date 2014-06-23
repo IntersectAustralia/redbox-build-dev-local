@@ -117,7 +117,7 @@
 		                    "component-type": "text-block",
 		                    "type": "label",
 		                    "content": "Keywords",
-		                    "help": "Enter a word or phrase that characterises your research data. To enter another word or phrase, click 'add'."
+		                    "help": "dmpt.field.help.dc-keyword"
 	                    },
 	                    {
 		                    "component-type": "repeatable-text",
@@ -296,7 +296,7 @@
                         {
                         	"component-type":"person",
                         	"lookup-name":"locrel:rth.foaf:Person",
-                        	"lookup-only":"false",
+                        	"lookup-only":"true",
                             "validation": {
         									"save-rules": [
             									"required"
@@ -304,7 +304,7 @@
         									"validation-id": "locrel:rth.foaf:Person.dc:identifier",
         									"focus-id": "locrel:rth.foaf:Person.foaf:title",
         									 "validation-messages":{
-        									 						"required": "Principal investigator is required"
+        									 						"required": "Principal investigator must be selected using lookup."
         									 						}
     						 			  }      
                         },
@@ -326,7 +326,7 @@
         									"save-rules": [
             									"required"
         									],
-        									"validation-id": "locrel:prc.foaf:Person.dc:identifier",
+        									"validation-id": "locrel:prc.foaf:Person.foaf:familyName",
         									"focus-id": "locrel:prc.foaf:Person.foaf:title",
         									 "validation-messages":{
         									 						"required": "Data manager is required"
@@ -445,7 +445,7 @@
 			                    "validation-id": "vivo:Dataset.dc.format",
 			                    "focus-id": "vivo:Dataset.dc.format",
 			                    "validation-messages": {
-				                    "required": "vivo:Dataset.dc.format"
+				                    "required": "Predominant file format is required!"
 			                    }
 		                    }
 	                    },
@@ -508,7 +508,18 @@
 			                    {
 				                    "name": "Next",
 				                    "form-submit-action": "save",
-				                    "type": "button"
+				                    "type": "button",
+				                    "object-metadata-params": [
+					                    {
+						                    "key": "generatePDF",
+						                    "value": "true"
+					                    },
+					                    {
+						                    "key": "dataStructureComplete",
+						                    "value": "true"
+					                    }
+				                    ]
+
 			                    }
 		                    ]
 	                    },
@@ -518,7 +529,18 @@
 			                    {
 				                    "name": "Save",
 				                    "form-submit-action": "save",
-				                    "type": "button"
+				                    "type": "button",
+				                    "object-metadata-params": [
+					                    {
+						                    "key": "generatePDF",
+						                    "value": "true"
+					                    },
+					                    {
+						                    "key": "dataStructureComplete",
+						                    "value": "true"
+					                    }
+				                    ]
+
 			                    },
 			                    {
                                 "name": "Save and close",
@@ -728,7 +750,18 @@
 			                    {
 				                    "name": "Next",
 				                    "form-submit-action": "save",
-				                    "type": "button"
+				                    "type": "button",
+				                    "object-metadata-params": [
+					                    {
+						                    "key": "generatePDF",
+						                    "value": "true"
+					                    },
+					                    {
+						                    "key": "dataRetentionComplete",
+						                    "value": "true"
+					                    }
+				                    ]
+
 			                    }
 		                    ]
 	                    },
@@ -738,7 +771,17 @@
 			                    {
 				                    "name": "Save",
 				                    "form-submit-action": "save",
-				                    "type": "button"
+				                    "type": "button",
+				                    "object-metadata-params": [
+					                    {
+						                    "key": "generatePDF",
+						                    "value": "true"
+					                    },
+					                    {
+						                    "key": "dataRetentionComplete",
+						                    "value": "true"
+					                    }
+				                    ]
 			                    },
 	                            {
                                     "name": "Save and close",
@@ -905,7 +948,8 @@
 				            "buttons": [
 					            {
 						            "label": "permission from the data manager",
-						            "value": "permission from the data manager"
+						            "value": "permission from the data manager",
+						            "checked": "true"
 					            },
 					            {
 						            "label": "open, free access under license",
@@ -1010,7 +1054,18 @@
 					            {
 						            "name": "Next",
 						            "form-submit-action": "save",
-						            "type": "button"
+						            "type": "button",
+						            "object-metadata-params": [
+							            {
+								            "key": "generatePDF",
+								            "value": "true"
+							            },
+							            {
+								            "key": "dataAccessComplete",
+								            "value": "true"
+							            }
+						            ]
+
 					            }
 				            ]
 			            },
@@ -1020,7 +1075,18 @@
 					            {
 						            "name": "Save",
 						            "form-submit-action": "save",
-						            "type": "button"
+						            "type": "button",
+						            "object-metadata-params": [
+							            {
+								            "key": "generatePDF",
+								            "value": "true"
+							            },
+							            {
+								            "key": "dataAccessComplete",
+								            "value": "true"
+							            }
+						            ]
+
 					            },
 					            {
 						            "name": "Save and close",

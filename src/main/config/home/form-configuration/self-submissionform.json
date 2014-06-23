@@ -68,7 +68,7 @@
                             "label": "",
                             "field-name": "dc:type.rdf:PlainLiteral",
                             "field-name-label": "dc:type.skos:prefLabel",
-                            "sourceUrl": "workflows/forms/data/types.json",
+                            "sourceUrl": "workflows/forms/data/types-selfSub.json",
                             "mandatory": "true",
                             "idKey": "id",
                             "labelKey": "label",
@@ -99,7 +99,8 @@
 	                    {
 		                    "component-type": "text-block",
 		                    "type": "label",
-		                    "content": "self-submission.field.label.dc-subject.vivo-keyword"
+		                    "content": "self-submission.field.label.dc-subject.vivo-keyword",
+		                    "help": "self-submission.field.help.dc-subject.vivo-keyword"
 	                    },
 	                    {
 		                    "component-type": "repeatable-container",
@@ -162,7 +163,8 @@
 	                   {
 		                   "component-type":"text-block",
 		                   "type":"h3",
-		                   "content":"self-submission.heading.label.geospatial"
+		                   "content":"self-submission.heading.label.geospatial",
+		                   "help":"self-submission.heading.help.geospatial"
 	                   },
 	                   {
 		                   "component-type":"native-html",
@@ -187,7 +189,7 @@
 	                   {
 		                   "component-type": "text-block",
 		                   "type": "label",
-		                   "content": "Location:"
+		                   "content": "self-submission.field.label.dc.coverage.vivo.GeographicLocation"
 	                   },
 	                   {
 		                   "component-type":"repeatable-container",
@@ -400,7 +402,7 @@
                         {
                             "component-type": "person",
                             "lookup-name": "dc:creator.foaf:Person",
-                            "lookup-only": "false",
+                            "lookup-only": "true",
                             "validation": {
                                 "save-rules": [
                                     "required"
@@ -408,7 +410,7 @@
                                 "validation-id": "dc:creator.foaf:Person.dc:identifier",
                                 "focus-id": "dc:creator.foaf:Person.foaf:title",
                                 "validation-messages": {
-                                    "required": "Principal investigator is required"
+                                    "required": "Principal investigator must be selected using lookup."
                                 }
                             }
                         },
@@ -430,8 +432,8 @@
                                 "save-rules": [
                                     "required"
                                 ],
-                                "validation-id": "locrel:prc.foaf:Person.dc:identifier",
-                                "focus-id": "locrel:prc.foaf:Person.foaf:title",
+                                "validation-id": "locrel:prc.foaf:Person.foaf:familyName",
+                                "focus-id": "locrel:prc.foaf:Person.foaf:familyName",
                                 "validation-messages": {
                                     "required": "Data manager is required"
                                 }
@@ -554,6 +556,7 @@
 							"label": "",
 							"field-name": "dc:extent",
 							"field-name-label": "dc:extent",
+							"size": "60",
 							"validation": {
 								"save-rules": [
 									"required"
@@ -579,7 +582,8 @@
 						{
 							"component-type": "text-block",
 							"type": "label",
-							"content": "self-submission.field.label.redbox-retentionPeriod"
+							"content": "self-submission.field.label.redbox-retentionPeriod",
+							"help":"self-submission.heading.help.retention"
 						},
 						{
 							"component-type": "data-source-dropdown",
@@ -655,15 +659,15 @@
 						{
 							"component-type": "text-block",
 							"type": "h3",
-							"content": "Related Publications"
-							"help": "Include URL/s to any publications underpinning the research dataset/collection, registry/repository, catalogue or index."
+							"content": "self-submission.field.label.dc.relation.swrc.Publication"
+							"help": "self-submission.field.help.dc.relation.swrc.Publication"
 						},
 						{
 							"component-type": "repeatable-container",
 							"containter-for": "dc:relation.swrc:Publication",
 							"sub-elements":{"settings":[
 								{
-									"jaffaRelatedURLInfo": {
+									"jaffaRelatedPublicationInfo": {
 										"label": "",
 										"class-list": "jaffa-field",
 										"suffix": ""
@@ -680,8 +684,8 @@
 						{
 							"component-type": "text-block",
 							"type": "h3",
-							"content": "Related Website"
-							"help": " Include URL/s for the relevant website."
+							"content": "self-submission.field.label.dc.relation.bibo.Website"
+							"help": "self-submission.field.help.dc.relation.bibo.Website"
 						},
 						{
 							"component-type": "repeatable-container",
@@ -705,8 +709,8 @@
 						{
 							"component-type": "text-block",
 							"type": "h3",
-							"content": "Related Data"
-							"help": "Link to any sources of third party data used/re-used. By default this is a lookup against existing datasets found in this system. If you would like to link to external datasets you should click on 'Advanced Selections' and deselect 'Local related data'. Also under 'Advanced Selections' is an option called 'Publish to RDA' which can be deselected if you do not wish to include this relationship in the RIF-CS sent to RDA."
+							"content": "self-submission.field.label.dc.relation.vivo.Dataset"
+							"help": "self-submission.field.help.dc.relation.vivo.Dataset"
 						},
 						{
 							"component-type": "repeatable-container",
@@ -804,6 +808,7 @@
 							"component-type": "text-input",
 							"field-name": "dc:accessRights.dc:RightsStatement.skos:prefLabel",
 							"label": "",
+							"size": "60",
 							"validation":{
 								"save-rules": [
 									"required"
@@ -818,7 +823,8 @@
 						{
 							"component-type": "text-input",
 							"label": "self-submission.field.label.dc-accessRights.dc-RightsStatement.dc-identifier",
-							"field-name": "dc:accessRights.dc:RightsStatement.dc:identifier"
+							"field-name": "dc:accessRights.dc:RightsStatement.dc:identifier",
+							"size": "60"
 						},
 						{
 							"component-type": "native-html",
@@ -834,21 +840,13 @@
 							"component-type": "text-input",
 							"label": "",
 							"field-name": "dc:accessRights.skos:prefLabel",
-							"validation":{
-								"save-rules": [
-									"required"
-								],
-								"validation-id": "dc:accessRights.skos:prefLabel",
-								"focus-id": "dc:accessRights.skos:prefLabel",
-								"validation-messages":{
-									"required": "Access Conditions statement is required"
-								}
-							}
+							"size": "60"
 						},
 						{
 							"component-type": "text-input",
 							"label": "self-submission.field.label.dc-accessRights.dc-identifier",
-							"field-name": "dc:accessRights.dc:identifier"
+							"field-name": "dc:accessRights.dc:identifier",
+							"size": "60"
 						},
 						{
 							"component-type": "native-html",
@@ -891,7 +889,8 @@
 						{
 							"component-type": "text-block",
 							"type": "h4",
-							"content": "dataset.embargo.heading"
+	        					"content": "dataset.embargo.heading",
+                                                        "help": "dataset.embargo.help"
 						},
 						{
 							"component-type": "checkbox",
@@ -923,7 +922,8 @@
 						{
 							"component-type": "text-block",
 							"type": "h4",
-							"content": "Citation Authors (in order):"
+							"content": "Citation Authors (in order):",
+							"help": "self-submission.heading.help.citation",
 						},
 
 						{
@@ -947,11 +947,16 @@
 							"content": "<hr>"
 						},
 
+						{
+							"component-type": "text-block",
+							"type": "h4",
+							"content": "DOI",
+                                                        "help": "self-submission.field.help.dc-identifier.redboxdmpt-doirequest",
+						},
 
 						{
 							"component-type": "checkbox",
 							"field-name": "self-submission.field.dc-identifier.redboxdmpt-doirequest",
-							"help": "self-submission.field.help.dc-identifier.redboxdmpt-doirequest",
 							"box-for": "",
 							"boxes": [
 								{
@@ -964,7 +969,7 @@
                             "component-type": "textarea",
                             "field-name": "skos:note.0.dc:description",
                             "label": "self-submission.field.label.skos-note",
-                            "content":"No notes, please add yours!"
+                            "content":""
                         },
 						{
 							"component-type": "checkbox",
